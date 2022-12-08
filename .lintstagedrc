@@ -1,3 +1,7 @@
 {
-  "**/*.{ts,tsx}": ["eslint ./src --ext .ts,.tsx", "prettier --write ./src"]
+  "**/*.{ts,tsx}": [
+    "eslint ./src --ext .ts,.tsx",
+    "prettier --write ./src",
+    "npm test"
+  ]
 }
