@@ -7,10 +7,10 @@ import { AppStore } from '@/redux/store'
 import { weatherService } from '@/services'
 import { Weather } from '@/models/weather.type'
 
-export const useWeather = () => {
+export const useWeather = (city?: string) => {
   const [weather, setWeather] = useState<Weather>()
   const { loading, callEndpoint } = useFetchAndLoad()
-  const location = useSelector((store: AppStore) => store.location.city)
+  const location = city ?? useSelector((store: AppStore) => store.location.city)
 
   const getApiData = async () =>
     await callEndpoint(weatherService.getForecast(location))
