@@ -1,3 +1,6 @@
 export * from './axiosCall'
+export * from './forecast.type'
+export * from './hours.type'
 export * from './location.type'
+export * from './pointHours.type'
 export * from './weather.type'
