@@ -2,7 +2,7 @@ import { Location } from '@/models'
 import { createSlice } from '@reduxjs/toolkit'
 
 export const LocationEmptyState: Location = {
-  city: ''
+  city: 'London'
 }
 
 export const locationSlice = createSlice({
