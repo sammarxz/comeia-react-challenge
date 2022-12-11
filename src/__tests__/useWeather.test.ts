@@ -4,9 +4,10 @@ import { setupServer } from 'msw/node'
 
 import { useWeather } from '@/hooks'
 import { weatherMock } from '@/__mocks__'
+import { API_URL } from '@/config/apiURL'
 
 const server = setupServer(
-  rest.get('http://api.weatherapi.com/v1/forecast.json', (req, res, ctx) => {
+  rest.get(API_URL, (req, res, ctx) => {
     return res(ctx.json(weatherMock))
   })
 )
