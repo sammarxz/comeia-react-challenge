@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/dot-notation */
+import { Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 import { useWeather } from '@/hooks'
 import { AppStore } from '@/redux/store'
-import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
+import { renderWeatherIcon } from '@/utilities'
 
 export const Weather = () => {
   const location = useSelector((store: AppStore) => store.location.city)
@@ -17,6 +20,7 @@ export const Weather = () => {
           <header>
             <h1>{location}</h1>
             <h2>{weather.mood}</h2>
+            {renderWeatherIcon(weather.mood)}
           </header>
           <section>
             <h3>
@@ -32,7 +36,7 @@ export const Weather = () => {
             {weather.hours.map(({ name, values }) => (
               <div key={name}>
                 <h4>{name}</h4>
-                <h5>{values.mood}</h5>
+                <h5>{renderWeatherIcon(values.mood)}</h5>
                 <h6>{values.temp}</h6>
               </div>
             ))}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { Weather } from '@/models'
 import { pointHours } from '@/utilities'
 
