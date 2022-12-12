@@ -5,22 +5,26 @@ import { pointHours } from '@/utilities'
 export const createWeatherAdapter = (data: any): Weather => ({
   mood: data.current.condition.text,
   temp: {
-    actual: data.current.temp_c,
-    min: data.forecast.forecastday[0].day.mintemp_c,
-    max: data.forecast.forecastday[0].day.maxtemp_c
+    actual: Math.round(data.current.temp_c),
+    min: Math.round(data.forecast.forecastday[0].day.mintemp_c),
+    max: Math.round(data.forecast.forecastday[0].day.maxtemp_c)
   },
   hours: [
     {
       name: 'dawn',
       values: {
-        temp: data.forecast.forecastday[0].hour[pointHours.dawn].temp_c,
+        temp: Math.round(
+          data.forecast.forecastday[0].hour[pointHours.dawn].temp_c
+        ),
         mood: data.forecast.forecastday[0].hour[pointHours.dawn].condition.text
       }
     },
     {
       name: 'morning',
       values: {
-        temp: data.forecast.forecastday[0].hour[pointHours.morning].temp_c,
+        temp: Math.round(
+          data.forecast.forecastday[0].hour[pointHours.morning].temp_c
+        ),
         mood: data.forecast.forecastday[0].hour[pointHours.morning].condition
           .text
       }
@@ -28,7 +32,9 @@ export const createWeatherAdapter = (data: any): Weather => ({
     {
       name: 'afternoon',
       values: {
-        temp: data.forecast.forecastday[0].hour[pointHours.afternoon].temp_c,
+        temp: Math.round(
+          data.forecast.forecastday[0].hour[pointHours.afternoon].temp_c
+        ),
         mood: data.forecast.forecastday[0].hour[pointHours.afternoon].condition
           .text
       }
@@ -36,7 +42,9 @@ export const createWeatherAdapter = (data: any): Weather => ({
     {
       name: 'night',
       values: {
-        temp: data.forecast.forecastday[0].hour[pointHours.night].temp_c,
+        temp: Math.round(
+          data.forecast.forecastday[0].hour[pointHours.night].temp_c
+        ),
         mood: data.forecast.forecastday[0].hour[pointHours.night].condition.text
       }
     }
@@ -44,7 +52,8 @@ export const createWeatherAdapter = (data: any): Weather => ({
   forecast: [
     {
       name: 'wind speed',
-      value: data.current.wind_mph
+      value: data.current.wind_mph,
+      unity: 'm/s'
     },
     {
       name: 'sunrise',
@@ -56,7 +65,8 @@ export const createWeatherAdapter = (data: any): Weather => ({
     },
     {
       name: 'humidity',
-      value: data.current.humidity
+      value: data.current.humidity,
+      unity: '%'
     }
   ]
 })
