@@ -135,6 +135,7 @@ $ npm run dev
 #### Dia 04
 - [x] Atualizar o Docker para passar a .env 
 - [x] CI/CD 
+- [x] Adicionar Cypress
 - [x] Escrever documentação
 - [x] Enviar Desafio
 
