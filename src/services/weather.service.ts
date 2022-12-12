@@ -9,8 +9,7 @@ export const weatherService = {
     return {
       call: axios.get(`${API_URL}?q=${city}`, {
         signal: controller.signal
-      }),
-      controller
+      })
     }
   }
 }

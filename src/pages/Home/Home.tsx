@@ -31,7 +31,9 @@ export const Home = () => {
             <S.Options className="flex flex-wrap justify-center">
               {availableCities.map((city) => (
                 <li key={city}>
-                  <Button onClick={() => handleClick(city)}>{city}</Button>
+                  <Button data-test-id={city} onClick={() => handleClick(city)}>
+                    {city}
+                  </Button>
                 </li>
               ))}
             </S.Options>
