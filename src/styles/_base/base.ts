@@ -17,8 +17,8 @@ export const Base = css`
   }
 
   body {
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    font-family: sans-serif;
     font-weight: 400;
     line-height: 1.5;
   }
