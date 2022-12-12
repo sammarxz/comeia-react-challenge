@@ -1,1 +1,1 @@
-export const API_URL = 'http://api.weatherapi.com/v1/forecast.json'
+export const API_URL = 'https://api.weatherapi.com/v1/forecast.json'
