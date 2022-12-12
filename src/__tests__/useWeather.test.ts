@@ -19,36 +19,20 @@ afterAll(() => server.close())
 const expectedResult = {
   loading: false,
   weather: {
-    forecast: {
-      humidity: 46,
-      sunrise: '04:59 AM',
-      sunset: '05:35 PM',
-      windSpeed: 11
-    },
-    hours: {
-      afternoon: {
-        mood: 'Sunny',
-        temp: 30.2
-      },
-      dawn: {
-        mood: 'Patchy rain possible',
-        temp: 20.5
-      },
-      morning: {
-        mood: 'Partly cloudy',
-        temp: 27.4
-      },
-      night: {
-        mood: 'Partly cloudy',
-        temp: 21.7
-      }
-    },
     mood: 'Partly cloudy',
-    temp: {
-      actual: 29.6,
-      max: 34.9,
-      min: 19.9
-    }
+    temp: { actual: 30, min: 20, max: 35 },
+    hours: [
+      { name: 'dawn', values: { temp: 21, mood: 'Patchy rain possible' } },
+      { name: 'morning', values: { temp: 27, mood: 'Partly cloudy' } },
+      { name: 'afternoon', values: { temp: 30, mood: 'Sunny' } },
+      { name: 'night', values: { temp: 22, mood: 'Partly cloudy' } }
+    ],
+    forecast: [
+      { name: 'wind speed', value: 11, unity: 'm/s' },
+      { name: 'sunrise', value: '04:59 AM' },
+      { name: 'sunset', value: '05:35 PM' },
+      { name: 'humidity', value: 46, unity: '%' }
+    ]
   }
 }
 
