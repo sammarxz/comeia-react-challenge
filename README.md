@@ -54,6 +54,10 @@ Eu particularmente gostei dessa arquitetura, acho que deu para abstrair bastante
 
 A ordem de desenvolvimento foi partindo do `model`, observando a interface final e tentando estrair quais dados e tipos eu precisaria. Após isso fui dar uma olhada na [WeatherAPI](https://www.weatherapi.com/) e ver o retorno dela. Depois criei um `adapter`que pegaria o retorno e adaptaria para meu `model`. Feito isso, criei um `service` para consumir a API. Depois coloquei esse `service` dentro de um `custom hook`, testei, criei uma interface sem estilização apenas para exibir e ver se tudo estava funcionando, só aí parti para a estilização da aplicação utilizando [Styled Components](https://styled-components.com/)
 
+Em relação a testes, eu acho testes de estilo, como ver se tal componente tem determinada classe, ou propriedade css, desnecessários. Pode ver que escrevi apenas um teste, o teste do custom hook `useWeather`, pois ele é o `core` da aplicação. Fora isso, escrevi um teste `end-2-end` com Cypress, para testar o fluxo que um usuário faria.
+
+Em relação ao uso do Redux, acho demais pra essa aplicação, eu poderia simplesmente ter pegado o valor do click do botão e ter passado via `url params` para a rota de forecast, mas decidi usar o redux inclusive com o [Redux Toolkit](https://redux-toolkit.js.org/) para justamente simular uma aplicação real, pronta para escalar.
+
 <p align="right">(<a href="#readme-top">Voltar para o topo</a>)</p>
 
 ## Como utilizar
